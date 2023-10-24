@@ -24,7 +24,7 @@ class Task
 {
     // Verifica se os valores não são nulos
     if ($title !== null && $description !== null) {
-        $query = 'INSERT INTO tasks (title, description, status) VALUES (?, ?, true)';
+        $query = 'INSERT INTO tasks (title, description, status) VALUES (?, ?, false)';
         $stmt = $this->db->prepare($query);
         return $stmt->execute([$title, $description]);
         
