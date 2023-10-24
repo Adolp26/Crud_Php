@@ -2,7 +2,7 @@
 
 Crud construido com slimframework e reactjs
 
-Para testar:
+Para iniciar:
 
 Necessário iniciar a imagem docker na pasta docker no Crud_api com <strong>docker-compose up</strong>; <br>
 Ou iniciar uma conexão com banco de dados postgresql, criar um database chamado tasks e adicionar os dados abaixo (para a imagem docker também):
