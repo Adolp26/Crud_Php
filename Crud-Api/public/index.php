@@ -17,8 +17,8 @@ $container = new Container();
 AppFactory::setContainer($container);
 
 $app = AppFactory::create();
-    $container->set('user', 'username'); // Substitua 'seu_usuario' pelo nome de usuário correto
-    $container->set('pass', 'password'); // Substitua 'sua_senha' pela senha correta
+    $container->set('user', 'username'); 
+    $container->set('pass', 'password'); 
 
 $container->set('db', function ($container) {
     $host = "localhost";
@@ -54,7 +54,7 @@ $container->set('App\Models\Task', function ($container) {
 
 // Configuração do middleware CORS
 $app->add(new CorsMiddleware([
-    'origin' => ['*'], // Substitua pela origem do seu aplicativo React
+    'origin' => ['*'],
     'methods' => ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     'headers.allow' => ['Content-Type'],
 ]));
