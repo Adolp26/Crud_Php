@@ -19,23 +19,28 @@ function App() {
 
 
   /*Criação de anotações */
-  async function handleSubmit() {
+ async function handleSubmit(e) {
+  e.preventDefault();
+  
+  const response = await api.post('/tasks', {
+    title,
+    description
+  });
 
-    const response = await api.post('/tasks', {
-      title,
-      description
-    })
-
+  if (response.status === 201) {
     setTitle('');
     setDescription('');
 
     if (selectedValue !== 'all') {
-      getAllDescription();
+      loadDescription(selectedValue);
     } else {
       setAllDescription([...allDescription, response.data]);
     }
-    setSelectedValue('all')
+    setSelectedValue('all');
   }
+  window.location.reload();
+}
+
 
   /*Alteração da cor do botão Salvar conforme preenchimento dos campos */
   useEffect(() => {
