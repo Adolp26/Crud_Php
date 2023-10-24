@@ -94,7 +94,7 @@ function App() {
 
 
 
-  /*Deletando Cards*/
+  /*Deletando anotações*/
   async function handleDelete(id) {
     const deleteDescription = await api.delete(`/tasks/${id}`);
 
