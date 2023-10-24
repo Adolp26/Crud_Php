@@ -19,8 +19,7 @@ function App() {
 
 
   /*Criação de anotações */
-  async function handleSubmit(e) {
-    e.preventDefault();
+  async function handleSubmit() {
 
     const response = await api.post('/tasks', {
       title,
