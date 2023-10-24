@@ -8,8 +8,11 @@ services:
 
     environment:
       POSTGRES_USER: 'username'
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: taks 
+      POSTGRES_PASSWORD: 'password'
+      POSTGRES_DB: 'tasks' 
 
     ports:
       - "5432:5432"
+
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
