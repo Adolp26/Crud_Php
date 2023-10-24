@@ -33,7 +33,8 @@ class Task
     return false;
 }
     public function deleteTasks($id)
-    {
+    {   
+        $id = intval($id);
         $query = 'DELETE FROM tasks WHERE id = ?';
         $stmt = $this->db->prepare($query);
         return $stmt->execute([$id]);
@@ -41,17 +42,19 @@ class Task
 
     public function updateTasks($id, $description)
     {
+        $id = intval($id);
         $query = 'UPDATE tasks SET description = ? WHERE id = ?';
         $stmt = $this->db->prepare($query);
         return $stmt->execute([$description, $id]);
     }
 
     public function toggleStatus($id)
-    {
-        $query = 'UPDATE tasks SET status = NOT status WHERE id = ?';
-        $stmt = $this->db->prepare($query);
-        return $stmt->execute([$id]);
-    }
+{
+    $id = intval($id); // Converte para inteiro
+    $query = 'UPDATE tasks SET status = NOT status WHERE id = ?';
+    $stmt = $this->db->prepare($query);
+    return $stmt->execute([$id]);
+}
     public function readStatusTrue()
 {
     $query = 'SELECT * FROM tasks WHERE status = true';
