@@ -34,7 +34,7 @@ function Notes({ data, handleDelete, handleChangeStatus }) {
 
     return (
         <>
-            <li className={data.status ? "notepad-infos" : "notepad-infos-priority"}>
+            <li className={data.status ? "notepad-infos-priority" : "notepad-infos"}>
                 <div>
                     <strong>{data.title}</strong>
                     <div>
@@ -54,7 +54,11 @@ function Notes({ data, handleDelete, handleChangeStatus }) {
                 <span>
                     <AiTwotoneExclamationCircle
                         size="20"
-                        onClick={() => handleChangeStatus(data.id)}
+                        onClick={() => {
+                            if (data.id) {
+                                handleChangeStatus(data.id);
+                            }
+                        }}
                     />
                 </span>
             </li>
