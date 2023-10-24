@@ -33,14 +33,14 @@ class TaskController
     $data = $request->getParsedBody();
     $title = $data['title'];
     $description = $data['description'];
-   // $status = $data['status'];
+    //$status = $data['status'];
     
     //var_dump($title, $description, $status);
 
 
     if ($title !== null && $description !== null) {
         $taskModel = new Task($this->db);
-        $created = $taskModel->createTasks($title, $description);
+        $created = $taskModel->createTasks($title, $description,);
 
         if ($created) {
             $responseData = ['message' => 'Tarefa criada com sucesso'];
